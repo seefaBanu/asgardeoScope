@@ -10,7 +10,8 @@ export default function SignIn() {
     if (state?.isAuthenticated) {
       navigate('/home');
     }
-  }, [state, navigate]);
+
+  }, []);
 
   return (
     <div>
