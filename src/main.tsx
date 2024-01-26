@@ -8,7 +8,7 @@ const config = {
   //  signInRedirectURL: "https://localhost:5173/",
   clientID: "SYwidN5DlMTP51JStxbTOgVT2_Ia",
   baseUrl: "https://api.asgardeo.io/t/sborg",
-  scope: [ "openid","profile" ]
+  scope: [ "openid","profile","email","group" ]
 };
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
