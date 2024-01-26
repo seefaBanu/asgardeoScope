@@ -1,10 +1,10 @@
 import { useAuthContext } from "@asgardeo/auth-react"
 
 function Home() {
-    const { signOut} = useAuthContext()
+    const {state,signOut} = useAuthContext()
   return (
     <>
-    <h1>You are  logged in</h1>
+    <h1>{state.displayName} are  logged in</h1>
     <button onClick={() => signOut()}>Sign out</button>
     </>
   )

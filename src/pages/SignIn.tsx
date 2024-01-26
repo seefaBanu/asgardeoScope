@@ -1,26 +1,25 @@
-import { useAuthContext } from '@asgardeo/auth-react'
+import { useAuthContext } from '@asgardeo/auth-react';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'; // Import useEffect
 
 export default function SignIn() {
-  const {state,signIn,signOut } = useAuthContext();
+  const { state, signIn } = useAuthContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (state?.isAuthenticated) {
+      navigate('/home');
+    }
+  }, [state, navigate]);
 
   return (
     <div>
-      {state.isAuthenticated ? (
-        <>
-                  
-                  <h1>You are  logged in</h1>
-                  <button onClick={() => signOut()}>Sign Out</button>
-        </>
-
-        ) :
-          (
-            <>
-            <h1>You are not logged in</h1>
-            <button onClick={() => signIn()}>Sign in</button>
-            </>
-          )
-          }
-
+      {!state?.isAuthenticated && (
+        <div>
+          <h1>You are not logged in</h1>
+          <button onClick={() => signIn()}>Sign in</button>
+        </div>
+      )}
     </div>
-  )
+  );
 }

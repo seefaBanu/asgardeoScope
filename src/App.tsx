@@ -3,7 +3,7 @@ import './App.css'
 import { useAuthContext } from '@asgardeo/auth-react'
 import SignIn from './pages/SignIn';
 import { useEffect } from 'react';
-declare module './pages/SignIn';
+import Home from './pages/Home';
 
 function App() {
 
@@ -15,12 +15,11 @@ function App() {
 
   return (
     <BrowserRouter>
-
     <Routes>
           <Route  path="/" element={<SignIn/>} />
+          <Route  path="/home" element={<Home/>} />
     </Routes>
     </BrowserRouter>
-    
 
   )
 }
