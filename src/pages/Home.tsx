@@ -1,5 +1,5 @@
 import { useAuthContext } from "@asgardeo/auth-react"
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 
 function Home() {
     const {getBasicUserInfo,signOut} = useAuthContext();
