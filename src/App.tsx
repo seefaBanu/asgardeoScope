@@ -1,25 +1,27 @@
+import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import './App.css'
 import { useAuthContext } from '@asgardeo/auth-react'
+import SignIn from './pages/SignIn';
+import { useEffect } from 'react';
+declare module './pages/SignIn';
 
 function App() {
 
-  const {state,signIn,signOut} = useAuthContext();
+  const {state} = useAuthContext();
+
+  useEffect(() => {
+    console.log(state)
+  } , [state])
 
   return (
-    <>
-      {state.isAuthenticated ? (
-        <>
-          {/* <h1>Welcome {stateuser}</h1> */}
-          <button onClick={() => signOut}>Sign out</button>
-        </>
-      ) :
-        (
-          <>
-            <button onClick={() => signIn()}>Sign in</button>
-          </>
-        )}
+    <BrowserRouter>
 
-    </>
+    <Routes>
+          <Route  path="/" element={<SignIn/>} />
+    </Routes>
+    </BrowserRouter>
+    
+
   )
 }
 
