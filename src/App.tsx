@@ -3,29 +3,39 @@ import './App.css'
 
 function App() {
 
-  const [user, setUser] = useState('user')
+  const [user, setUser] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  if(isAuthenticated && user === 'admin') {
-    return (
-      <>
-        <h1>Welcome {user}</h1>
-        <button onClick={()=> setIsAuthenticated(false)}>Sign out</button>
-      </>
-    )
+
+
+  const handelSignOut = () => {
+    setIsAuthenticated(false);
+    setUser('');
   }
-  if(isAuthenticated && user === 'user') {
-    return (
-      <>
-        <h1>Welcome {user}</h1>
-        <button onClick={()=> setIsAuthenticated(false)}>Sign out</button>
-      </>
-    )
+
+  const handelSignIn = () => {
+    setIsAuthenticated(true);
   }
 
   return (
     <>
-       <button onClick={()=> setIsAuthenticated(true)}>Sign in</button>
+      {isAuthenticated ? (
+        <>
+          <h1>Welcome {user}</h1>
+          <button onClick={() => handelSignOut()}>Sign out</button>
+        </>
+      ) :
+        (
+          <>
+            <div style={{ margin: '20px' }}>
+              <label style={{ marginRight: '20px' }}>Username</label>
+              <input type="text" onChange={(e) => setUser(e.target.value)} style={{ marginBottom: '10px' }} />
+            </div>
+            <button onClick={() => handelSignIn()}>Sign in</button>
+
+          </>
+        )}
+
     </>
   )
 }
