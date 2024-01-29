@@ -11,7 +11,7 @@ export default function SignIn() {
       navigate('/home');
     }
 
-  }, []);
+  }, [state]);
 
   return (
     <div>

@@ -16,8 +16,15 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-          <Route  path="/" element={<SignIn/>} />
-          <Route  path="/home" element={<Home/>} />
+          {state.isAuthenticated ? (
+               <Route  path="/" element={<Home/>} />
+          ):(
+            <Route>
+            <Route  path="/" element={<SignIn/>} />
+            <Route  path='/*' element ={<h1>Not Authorized</h1> } />
+            </Route>
+          )}
+         
     </Routes>
     </BrowserRouter>
 
