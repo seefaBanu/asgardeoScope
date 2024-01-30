@@ -14,26 +14,7 @@ type UserDto record {|
     string email;
 |};
 
-// service /app on new http:Listener(9090) {
 
-//     private final db:Client dbClient;
-
-//     function init() returns error? {
-//         self.dbClient = check new ();
-//     }
-
-//     resource function post users(db:UserInsert user) returns http:InternalServerError & readonly|http:Created & readonly|http:Conflict & readonly {
-//         string[]|persist:Error result = self.dbClient->/users.post([user]);
-//         if result is persist:Error {
-//             if result is persist:AlreadyExistsError {
-//                 return http:CONFLICT;
-//             }
-//             return http:INTERNAL_SERVER_ERROR;
-//         }
-//         return http:CREATED;
-//     }
-
-// }
 
 service /user on new http:Listener(9090) {
     private final db:Client dbClient;
@@ -46,9 +27,9 @@ service /user on new http:Listener(9090) {
         return from db:UserOptionalized user in users select user;
     }
 
-    resource function post users(db:UserInsert user) returns http:InternalServerError|http:Created |http:Conflict  {
-        
-        string[]|persist:Error result = self.dbClient->/users.post([user]);
+    resource function post users(UserDto user) returns http:InternalServerError|http:Created |http:Conflict  {
+        db:UserInsert newUser={id:user.id,name:user.name,email:user.email};
+        string[]|persist:Error result = self.dbClient->/users.post([newUser]);
         
         if result is persist:Error {
             if result is persist:AlreadyExistsError {
@@ -58,4 +39,5 @@ service /user on new http:Listener(9090) {
         }
         return http:CREATED;
     }
+
 }
