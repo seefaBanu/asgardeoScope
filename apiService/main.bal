@@ -18,6 +18,7 @@ service /user on new http:Listener(9090) {
     }
     resource function get users() returns db:UserOptionalized[]|error? {
         stream<db:UserOptionalized,persist:Error?> users = self.dbClient->/users();
+        
         return from db:UserOptionalized user in users select user;
     }
 
@@ -33,5 +34,13 @@ service /user on new http:Listener(9090) {
         }
         return http:CREATED;
     }
+
+    function mapUserToDto(db:UserOptionalized user) returns UserDto {
+    return {
+        id: user.id.toString(),
+        name: <string>user.name,
+        email: <string>user.email
+    };
+}
 
 }
