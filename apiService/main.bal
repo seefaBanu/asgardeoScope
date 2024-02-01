@@ -35,6 +35,10 @@ service /user on new http:Listener(9090) {
         return http:CREATED;
     }
 
+    resource function get hello() returns string {
+        return "Hello, World!"; 
+    }
+
     function mapUserToDto(db:UserOptionalized user) returns UserDto {
     return {
         id: user.id.toString(),

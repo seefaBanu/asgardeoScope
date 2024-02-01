@@ -46,6 +46,24 @@ service /email on new http:Listener(9090) {
         }
     }
 
+    resource function get hi() returns string|http:Error {
+        http:Client apiServiceClient = check new (apiServiceEndpoint,
+         auth = {
+                tokenUrl: tokenEndpoint,
+                clientId: consumerKey,
+                clientSecret: apiServiceConsumerSecret,
+                clientConfig: {
+                    secureSocket: {
+                        disable: true
+                    }
+                }
+            }
+        );
+        string|http:Error result = apiServiceClient->/hello();
+        return result;
+
+    }
+
 
 
 }
