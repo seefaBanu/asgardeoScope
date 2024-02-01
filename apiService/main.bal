@@ -3,17 +3,11 @@ import ballerina/http;
 import ballerina/persist;
 
 
-# Description.
-#
-# + id - field description  
-# + name - field description  
-# + email - field description
 type UserDto record {|
     readonly string id;
     string name;
     string email;
 |};
-
 
 
 service /user on new http:Listener(9090) {
