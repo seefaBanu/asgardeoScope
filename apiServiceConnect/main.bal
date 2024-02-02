@@ -7,10 +7,10 @@ type UserDto record {
     string email;
 };
 
- string apiServiceEndpoint = "https://a1e2c832-3205-42a5-ba03-4441268b25aa-dev.e1-us-east-azure.choreoapis.dev/ikll/apiservice/user-294/v1.0";
- string consumerKey = "VdrluxHLBjFbLr9JY9f1whkUHcga";
+ string apiServiceEndpoint = "https://a1e2c832-3205-42a5-ba03-4441268b25aa-dev.e1-us-east-azure.choreoapis.dev/ikll/apiservice/user-294/v1";
+    string consumerKey = "VdrluxHLBjFbLr9JY9f1whkUHcga";
  string apiServiceConsumerSecret = "_bZ9l51tqq6j68GnLP6i3D9ZPdpSSHbHX_d2GJEKWJwa";
- string tokenEndpoint = "https://sts.choreo.dev/oauth2/token";
+ string tokenEndpoint = "https://api.asgardeo.io/t/sborg/oauth2/token";
 
 // configurable string apiServiceEndpoint = ?;
 // configurable string consumerKey = ?;
