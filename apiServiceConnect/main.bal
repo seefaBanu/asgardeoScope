@@ -7,15 +7,15 @@ type UserDto record {
     string email;
 };
 
-// configurable string apiServiceEndpoint = "https://a1e2c832-3205-42a5-ba03-4441268b25aa-dev.e1-us-east-azure.choreoapis.dev/ikll/apiservice/user-294/v1.0";
-// configurable string consumerKey = "di8wWWQgbKYJTNKlIV399GRkyTQa";
-// configurable string apiServiceConsumerSecret = "*****************";
-// configurable string tokenEndpoint = "https://sts.choreo.dev/oauth2/token";
+ string apiServiceEndpoint = "https://a1e2c832-3205-42a5-ba03-4441268b25aa-dev.e1-us-east-azure.choreoapis.dev/ikll/apiservice/user-294/v1.0";
+ string consumerKey = "VdrluxHLBjFbLr9JY9f1whkUHcga";
+ string apiServiceConsumerSecret = "_bZ9l51tqq6j68GnLP6i3D9ZPdpSSHbHX_d2GJEKWJwa";
+ string tokenEndpoint = "https://sts.choreo.dev/oauth2/token";
 
-configurable string apiServiceEndpoint = ?;
-configurable string consumerKey = ?;
-configurable string apiServiceConsumerSecret = ?;
-configurable string tokenEndpoint = ?;
+// configurable string apiServiceEndpoint = ?;
+// configurable string consumerKey = ?;
+// configurable string apiServiceConsumerSecret = ?;
+// configurable string tokenEndpoint = ?;
 
 
 service /email on new http:Listener(9090) {
