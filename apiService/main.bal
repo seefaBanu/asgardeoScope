@@ -2,12 +2,12 @@ import apiService.db;
 import ballerina/http;
 import ballerina/persist;
 
-
 type UserDto record {|
     readonly string id;
     string name;
     string email;
 |};
+
 
 
 service /user on new http:Listener(9090) {
@@ -36,6 +36,7 @@ service /user on new http:Listener(9090) {
     }
 
     resource function get hello() returns string {
+        
         return "Hello, World!"; 
     }
 

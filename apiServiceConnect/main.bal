@@ -24,33 +24,32 @@ service /email on new http:Listener(9090) {
     function init() returns error? {
         self.dbClient = check new ();
     }
-    resource function post users(UserDto newUser) returns error|http:Response{
-        http:Client apiServiceClient = check new (apiServiceEndpoint,
-         auth = {
-                tokenUrl: tokenEndpoint,
-                clientId: consumerKey,
-                clientSecret: apiServiceConsumerSecret,
-                clientConfig: {
-                    secureSocket: {
-                        disable: true
-                    }
-                },
-                scopes: "urn:sborg:apiserviceuser:test"
-            }
-        );
-        string[]|http:Error result = apiServiceClient->/users.post([newUser]);
-        if (result is string[]) {
-            http:Response response = new;
-            response.statusCode = 201;
-            response.setPayload("User created successfully");
-            return response;
-        } else {
-            http:Response response = new;
-            response.statusCode = 409;
-            response.setPayload("User already exists");
-            return response;
-        }
-    }
+    // resource function post users(UserDto newUser) returns error|http:Response{
+    //     http:Client apiServiceClient = check new (apiServiceEndpoint,
+    //      auth = {
+    //             tokenUrl: tokenEndpoint,
+    //             clientId: consumerKey,
+    //             clientSecret: apiServiceConsumerSecret,
+    //             clientConfig: {
+    //                 secureSocket: {
+    //                     disable: true
+    //                 }
+    //             }
+    //         }
+    //     );
+    //     string[]|http:Error result = apiServiceClient->/users.post([newUser]);
+    //     if (result is string[]) {
+    //         http:Response response = new;
+    //         response.statusCode = 201;
+    //         response.setPayload("User created successfully");
+    //         return response;
+    //     } else {
+    //         http:Response response = new;
+    //         response.statusCode = 409;
+    //         response.setPayload("User already exists");
+    //         return response;
+    //     }
+    // }
 
     resource function get hi() returns string|http:Error {
         http:Client apiServiceClient = check new (apiServiceEndpoint,
@@ -62,9 +61,11 @@ service /email on new http:Listener(9090) {
                     secureSocket: {
                         disable: true
                     }
-                }
+                },
+                scopes: ["urn:sborg:apiserviceuser:test"]
             }
         );
+
         string|http:Error result = apiServiceClient->/hello();
         return result;
 
