@@ -7,10 +7,15 @@ type UserDto record {
     string email;
 };
 
-configurable string apiServiceEndpoint = "https://a1e2c832-3205-42a5-ba03-4441268b25aa-dev.e1-us-east-azure.choreoapis.dev/ikll/apiservice/user-294/v1";
-configurable string consumerKey = "f0H4ftyWPJ0gzl5FJzfZZVS6_0Ia";
-configurable string apiServiceConsumerSecret = "G4SFysvITDQyrhf5jEkeWVYx_WJS2AIVYFlwP2TIlw4a";
-configurable string tokenEndpoint = "https://api.asgardeo.io/t/sborg/oauth2/token";
+// configurable string apiServiceEndpoint = "https://a1e2c832-3205-42a5-ba03-4441268b25aa-dev.e1-us-east-azure.choreoapis.dev/ikll/apiservice/user-294/v1.0";
+// configurable string consumerKey = "di8wWWQgbKYJTNKlIV399GRkyTQa";
+// configurable string apiServiceConsumerSecret = "*****************";
+// configurable string tokenEndpoint = "https://sts.choreo.dev/oauth2/token";
+
+configurable string apiServiceEndpoint = ?;
+configurable string consumerKey = ?;
+configurable string apiServiceConsumerSecret = ?;
+configurable string tokenEndpoint = ?;
 
 
 service /email on new http:Listener(9090) {
@@ -63,7 +68,4 @@ service /email on new http:Listener(9090) {
         return result;
 
     }
-
-
-
 }
