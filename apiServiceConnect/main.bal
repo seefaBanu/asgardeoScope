@@ -34,7 +34,8 @@ service /email on new http:Listener(9090) {
                     secureSocket: {
                         disable: true
                     }
-                }
+                },
+                scopes: "urn:sborg:apiserviceuser:test"
             }
         );
         string[]|http:Error result = apiServiceClient->/users.post([newUser]);
