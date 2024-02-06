@@ -8,7 +8,7 @@ type UserDto record {
 };
 
  string apiServiceEndpoint = "https://a1e2c832-3205-42a5-ba03-4441268b25aa-dev.e1-us-east-azure.choreoapis.dev/ikll/apiservice/user-294/v1.0";
-    string consumerKey = "di8wWWQgbKYJTNKlIV399GRkyTQa";
+ string consumerKey = "di8wWWQgbKYJTNKlIV399GRkyTQa";
  string apiServiceConsumerSecret = "QmHeTRJdfz0q4IgA2G1SXp9yf4Aa";
  string tokenEndpoint = "https://sts.choreo.dev/oauth2/token";
 
@@ -71,3 +71,4 @@ service /email on new http:Listener(9090) {
 
     }
 }
+

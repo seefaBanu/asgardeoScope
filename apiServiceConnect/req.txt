@@ -1,0 +1,32 @@
+//connection credentials - with scope
+curl -X 'POST' \
+  --url 'https://sts.choreo.dev/oauth2/token' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data grant_type=client_credentials \
+  --data client_id=di8wWWQgbKYJTNKlIV399GRkyTQa \
+  --data client_secret=QmHeTRJdfz0q4IgA2G1SXp9yf4Aa \
+  --data scope=urn:sborg:apiserviceuser:test
+
+//connection credentials
+curl -X 'POST' \
+  --url 'https://sts.choreo.dev/oauth2/token' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data grant_type=client_credentials \
+  --data client_id=di8wWWQgbKYJTNKlIV399GRkyTQa \
+  --data client_secret=QmHeTRJdfz0q4IgA2G1SXp9yf4Aa  \
+
+
+curl -X 'GET' \
+  'https://a1e2c832-3205-42a5-ba03-4441268b25aa-dev.e1-us-east-azure.choreoapis.dev/ikll/apiservice/user-294/v1/hello' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer eyJ4NXQiOiJZV1kxTm1Sa1pHSTVNekU0T0RCbFpEUmlNV0k0WldKbE5qRXhaV1ZpWmpFek1tTm1ORFUzWVEiLCJraWQiOiJNV1E1TldVd1lXWmlNbU16WlRJek16ZG1NekJoTVdNNFlqUXlNalZoTldNNE5qaGtNR1JtTnpGbE1HSTNaRGxtWW1Rek5tRXlNemhoWWpCaU5tWmhZd19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJzYm9yZyIsImF1dCI6IkFQUExJQ0FUSU9OIiwiYXVkIjoiZGk4d1dXUWdiS1lKVE5LbElWMzk5R1JreVRRYSIsIm5iZiI6MTcwNjg2MTk0NiwiYXpwIjoiZGk4d1dXUWdiS1lKVE5LbElWMzk5R1JreVRRYSIsInNjb3BlIjoidXJuOnNib3JnOmFwaXNlcnZpY2V1c2VyOnRlc3QiLCJvcmdhbml6YXRpb24iOnsidXVpZCI6ImExZTJjODMyLTMyMDUtNDJhNS1iYTAzLTQ0NDEyNjhiMjVhYSJ9LCJpc3MiOiJodHRwczpcL1wvc3RzLmNob3Jlby5kZXY6NDQzXC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNzA2ODY1NTQ2LCJpYXQiOjE3MDY4NjE5NDYsImp0aSI6IjJlNTRmZWNiLTVjOTEtNDJkNC1hZTVlLWY5ODAyNDIzZTQzYiJ9.oP9rlTVfG9o5iDC1Z8hRDNPuCqFJGFeorQbp1KDKkqlpZ0clfMWjHZz3M9RyR32g-1BSB5NNqtv2451XDU3Anf8R5fXvL_CFAi9gQz7m9FSOY3jIXrh979-j1LUoCBflcOJkeXZClEzWbm7lk0w9kLWI5XuyNC7ARUYw2Ejqm_K6HRMpDvJDa_qrb-EeBZ_9s2ZuJhyQsTBI3oYQKZVr4aGujvA7hh_OQU6jS8WpBz8oPsaUwPtRxACBPeQGffNzmJIEcQ5OZ6r7jo9ZcVag48vKX2KE6ebpsZ411H-QGFLju5CWodfb-MAW_H4cE9LSl1pM5FXMRp_Xn-Ldt3gOuV0_cs6cToxS8RLpJrOP7WUfhf7-2-S-m_ZZVsID-KpLtiLQpO4bXKLWzv3bYkfmAoZHel7SmIWhrPHe_W9KiQ2VeA8SNcv0CCJBijeDAzglL6-W6sVIYeL3r8iMR5dwKJcK4YwSSgdC1N3ttgCGf-TSWd3I1Mw6weQ9DLRzJla4d9aIrCHKh7WCqGVU6snhnf9JZjIy3fx4YIkQuSU6eak139LXUzDtaqPElXiSixWGpJrMLKILp6Q_33F7ka0WeRIohXdtKlUPJeod6xB8ovReG_EGtCgAW3GIY5X-xYIC_ojfqCqeWCbbQus_Lgax15B2KD2BqdaEX7VbmllgZhw'
+  
+
+curl -X 'POST' \
+--url 'https://api.asgardeo.io/t/sborg/oauth2/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data code=authorization_code \
+--data grant_type=authorization_code \
+--data client_id=VdrluxHLBjFbLr9JY9f1whkUHcga \
+--data client_secret=_bZ9l51tqq6j68GnLP6i3D9ZPdpSSHbHX_d2GJEKWJwa' \
+--data redirect_uri=http://localhost:5173
